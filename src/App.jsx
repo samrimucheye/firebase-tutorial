@@ -12,6 +12,7 @@ const App = () => {
     <BrowserRouter>
       <div className="bg-yellow-600 min-h-screen p-4 my-9">
         <h2>welcome to mimi chat</h2>
+        <h2>welcome to malede gashaw chat now</h2>
         <Routes>
           <Route
             path="/"
