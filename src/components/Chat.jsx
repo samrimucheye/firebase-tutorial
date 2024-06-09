@@ -69,7 +69,7 @@ const Chat = () => {
             onChange={(e) => setMessage(e.target.value)}
           />
           <button type="submit" className="btn bg-blue-400">
-            send Message now
+            send Message please
           </button>
         </form>
       </div>
