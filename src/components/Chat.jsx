@@ -51,7 +51,7 @@ const Chat = () => {
       <SignOut />
       <div className="flex flex-col">
         <section>
-          <h1>{auth.currentUser.displayName}</h1>
+          <h1 className="bg-yellow-500">{auth.currentUser.displayName}</h1>
           {getMessages.map((newmessage) => (
             <div key={newmessage.timestamp}>
               <p>{newmessage.uid}</p>
