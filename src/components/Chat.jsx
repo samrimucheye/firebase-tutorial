@@ -5,6 +5,8 @@ import {
   collection,
   serverTimestamp,
   onSnapshot,
+  orderBy,
+  query,
 } from "firebase/firestore";
 import { db, auth } from "../../firebase-config";
 
@@ -31,13 +33,17 @@ const Chat = () => {
   };
 
   useEffect(() => {
-    onSnapshot(collectionRef, (snapshot) => {
-      let allMessages = [];
+    const queryMessages = query(collectionRef, orderBy("timestamp"));
+    const unsuscribe = onSnapshot(queryMessages, (snapshot) => {
+      let messages = [];
       snapshot.forEach((doc) => {
-        allMessages.push({ ...doc.data(), id: doc.id });
+        messages.push({ ...doc.data(), id: doc.id });
       });
-      setGetMessages(allMessages);
+      console.log(messages);
+      setGetMessages(messages);
     });
+
+    return () => unsuscribe();
   }, []);
 
   return (
@@ -52,7 +58,7 @@ const Chat = () => {
               <h1
                 className={
                   auth.currentUser.uid === newmessage.uid
-                    ? "bg-green-500 border-y-2"
+                    ? "bg-green-500 border-y-2 border-r-2"
                     : "bg-yellow-500 border-x-2"
                 }
               >
