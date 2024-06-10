@@ -11,7 +11,9 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="bg-yellow-600 min-h-screen p-4 my-9">
-        <h2>welcome to malede gashaw chat now</h2>
+
+        <h2>welcome to malede gashaw's chat</h2>
+
         <Routes>
           <Route
             path="/"
